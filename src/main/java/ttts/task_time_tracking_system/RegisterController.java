@@ -51,7 +51,7 @@ public class RegisterController implements Initializable {
     }
 
     @FXML
-     void registerFreelancer(ActionEvent event) throws LoginException {
+    void registerFreelancer(ActionEvent event) throws LoginException {
         if(registerNIFField.getLength()==9) {
             if(!RepositoryFreelancer.getRepositoryFreelancer().getFreelancer().containsKey(registerNIFField.getText())){
                 Freelancer f1 = new Freelancer();
@@ -65,6 +65,10 @@ public class RegisterController implements Initializable {
                 f1.setType("freelancer");
                 f1.setWorkHours(0);
                 FreelancerREP.createFreelancer(f1);
+                Alert alertDatInv = new Alert(Alert.AlertType.INFORMATION);
+                alertDatInv.setTitle("Registado");
+                alertDatInv.setHeaderText("Registo realizado com sucesso!");
+                alertDatInv.show();
             }else {
                 Alert alertDatInv = new Alert(Alert.AlertType.ERROR);
                 alertDatInv.setTitle("Erro");
