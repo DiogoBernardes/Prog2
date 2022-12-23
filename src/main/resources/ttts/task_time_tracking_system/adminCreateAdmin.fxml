@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ttts.task_time_tracking_system.adminRegisteAdminController">
+   <top>
+      <AnchorPane prefHeight="68.0" prefWidth="0.0" style="-fx-background-color: FF8C00;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="216.0" layoutY="18.0" text="Registar Admin" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: F0FFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="356.0" layoutY="58.0" text="Password" />
+            <TextField fx:id="usernameRegisterAdmin" layoutX="88.0" layoutY="75.0" prefHeight="25.0" prefWidth="166.0" promptText="username" style="-fx-background-color: add8e6;" />
+            <Label layoutX="88.0" layoutY="58.0" text="Username" />
+            <Label layoutX="88.0" layoutY="14.0" text="Dados Login" textFill="#05245b" underline="true">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="passRegisterAdmin" layoutX="356.0" layoutY="75.0" prefHeight="25.0" prefWidth="166.0" promptText="password" style="-fx-background-color: add8e6;" />
+            <Label layoutX="88.0" layoutY="141.0" text="Dados Pessoais" textFill="#05245b" underline="true">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameRegisterAdmin" layoutX="88.0" layoutY="195.0" prefHeight="25.0" prefWidth="166.0" promptText="name" style="-fx-background-color: add8e6;" />
+            <Label layoutX="88.0" layoutY="178.0" text="Nome" />
+            <TextField fx:id="nifRegisterAdmin" layoutX="88.0" layoutY="251.0" prefHeight="25.0" prefWidth="166.0" promptText="NIF" style="-fx-background-color: add8e6;" />
+            <Label layoutX="88.0" layoutY="234.0" text="NIF" />
+            <DatePicker fx:id="birthdateRegisterAdmin" layoutX="356.0" layoutY="195.0" style="-fx-background-color: add8e6;" />
+            <Label layoutX="356.0" layoutY="178.0" text="Data de Nascimento" />
+            <Button fx:id="registerAdmin" layoutX="375.0" layoutY="276.0" mnemonicParsing="false" onAction="#registerAdmin" prefHeight="31.0" prefWidth="62.0" style="-fx-background-color: add8e6;" text="Registar" />
+            <Button fx:id="backMenuAdmin" layoutX="491.0" layoutY="276.0" mnemonicParsing="false" onAction="#backButton" prefHeight="31.0" prefWidth="62.0" style="-fx-background-color: add8e6;" text="Voltar" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
