@@ -52,59 +52,17 @@ public class FreelancerMenuController {
     }
 
     @FXML
-    void MenuFreelancerMenuButton(ActionEvent event){
-        try{
-            projetosMenuFreelancer.setVisible(false);
-            tarefasMenuFreelancer.setVisible(false);
-            editPerfilMenuFreelancer.setVisible(false);
-        }catch (Exception e ){
-            e.printStackTrace();
-        }
-    }
-    @FXML
-    void projetosFreelancerMenuButton(ActionEvent event){
-        try{
-            projetosMenuFreelancer.setVisible(true);
-            tarefasMenuFreelancer.setVisible(false);
-            editPerfilMenuFreelancer.setVisible(false);
-        }catch (Exception e ){
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void tarefasFreelancerMenuButton(ActionEvent event) {
+    void projectsMenu(ActionEvent event){
         try {
-            tarefasMenuFreelancer.setVisible(true);
-            projetosMenuFreelancer.setVisible(false);
-            editPerfilMenuFreelancer.setVisible(false);
-        }catch (Exception e ){
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void editPerfilFreelancerMenuButton(ActionEvent event) {
-        try {
-            editPerfilMenuFreelancer.setVisible(true);
-            projetosMenuFreelancer.setVisible(false);
-            tarefasMenuFreelancer.setVisible(false);
-        }catch (Exception e ){
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void createProjectsFMenuButton(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("createProjects.fxml"));
-            Scene regCena = new Scene(root);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("projectsMenu.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(regCena);
-            stage.setTitle("Criar Projetos - Freelancer");
+            stage.setTitle("Menu Projetos");
             stage.show();
-        }catch (IOException e){
-            e.getMessage();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+
 }

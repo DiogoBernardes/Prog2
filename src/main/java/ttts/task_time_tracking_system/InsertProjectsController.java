@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ProjectsController implements Initializable {
+public class InsertProjectsController implements Initializable {
 
     @FXML
     private TextField nameProjectTextField;
@@ -68,7 +68,7 @@ public class ProjectsController implements Initializable {
 
     @Override
     public void initialize(URL url , ResourceBundle resourceBundle){
-        Freelancer f = new Freelancer();
-        f.setNIF(SessionData.freelancer.getNIF());
+       // Freelancer f = new Freelancer();
+        //f.setNIF(SessionData.freelancer.getNIF());
     }
 }
