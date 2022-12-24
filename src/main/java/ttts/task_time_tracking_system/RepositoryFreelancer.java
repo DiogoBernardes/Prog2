@@ -18,28 +18,30 @@ public class RepositoryFreelancer implements Serializable {
 
 
     public static RepositoryFreelancer getRepositoryFreelancer() {
-        ReentrantLock lock = new ReentrantLock();
-        lock.lock();
-        if (repoFreelancer == null)
-            repoFreelancer = new RepositoryFreelancer();
-        lock.unlock();
+        if (repoFreelancer == null) {
+            ReentrantLock lock = new ReentrantLock();
+            lock.lock();
+            if (repoFreelancer == null) {
+                repoFreelancer = new RepositoryFreelancer();
+            }
+            lock.unlock();
+        }
         return repoFreelancer;
     }
 
-    public static void serialize(Freelancer obj, String filename) throws IOException {
-
+    public static void serialize(Map<String,Freelancer> obj, String filename) throws IOException {
         try (FileOutputStream fos = new FileOutputStream(filename,true);
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-            oos.writeObject(obj);
-            oos.flush();
+             oos.writeObject(obj);
+             oos.flush();
         }
     }
 
-    public static Freelancer deserialize(String filename)throws IOException, ClassNotFoundException{
-        Freelancer result = null;
+    public static Map<String, Freelancer> deserialize(String filename) throws IOException, ClassNotFoundException {
+        Map<String, Freelancer> result = null;
         try (FileInputStream fis = new FileInputStream(filename);
              ObjectInputStream ois = new ObjectInputStream(fis)) {
-            result = (Freelancer) ois.readObject();
+            result = (Map<String, Freelancer>) ois.readObject();
         }
         return result;
     }

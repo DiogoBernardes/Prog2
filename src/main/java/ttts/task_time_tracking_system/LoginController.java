@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.net.URL;
 
@@ -52,12 +53,10 @@ public class LoginController implements Initializable {
                     stage.setTitle("Menu Cliente");
                     stage.show();
                 }}
-            RepositoryFreelancer repoFreelancer;
-            repoFreelancer = RepositoryFreelancer.getRepositoryFreelancer();
-            Freelancer f = RepositoryFreelancer.deserialize("src\\main\\resources\\ttts\\Data\\Freelancer.txt");
-            for(Freelancer fd : repoFreelancer.getFreelancer().values()){
+                Map<String, Freelancer> freelancers = RepositoryFreelancer.deserialize("src\\main\\resources\\ttts\\Data\\Freelancer.txt");
+                for (Freelancer f : freelancers.values()) {
                 if (user.equals(f.getUsername()) && pass.equals(f.getPassword())) {
-                    found=true;
+                    found = true;
                     System.out.println("Login com Sucesso!");
                     Parent root = FXMLLoader.load(getClass().getResource("FreelancerMenu.fxml"));
                     Scene regCena = new Scene(root);
@@ -67,11 +66,11 @@ public class LoginController implements Initializable {
                     stage.show();
                 }
             }
-            if(!found){
-                Alert alertDatInv = new Alert(Alert.AlertType.ERROR);
-                alertDatInv.setTitle("Erro");
-                alertDatInv.setHeaderText("Utilizador/Password Errada!");
-                alertDatInv.show();
+            if (!found) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erro");
+                alert.setHeaderText("Utilizador/Password Errada!");
+                alert.show();
             }
         }catch (Exception ex){
             ex.getMessage();
