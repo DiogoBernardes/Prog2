@@ -16,6 +16,7 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
     }
+    private String n = "Rafael é lindo";
 
     public static void main(String[] args) throws IOException, ClassNotFoundException{
 
