@@ -17,25 +17,20 @@ public class Freelancer implements Serializable {
 
         private float workHours;
         private List<Projects> projects;
+        private List<Tasks> tasks;
 
         public Freelancer(){this.projects = new ArrayList<>();} //Construtor
 
         public List<Projects> getProjects(){return projects;} //getter dos projetos
-
-    public void setProjects(List<Projects> projects) {
+        public void setProjects(List<Projects> projects) {
         this.projects = projects;
     }
-
-    public void ListProjects(){
-            int numProjects = 1;
-            for(Projects pj : this.projects){
-                System.out.println("Nº Projeto: " + pj.getIdProjeto());
-                System.out.println("Nº Projeto: " + pj.getName());
-                System.out.println("Nº Projeto: " + pj.getClient());
-                System.out.println("Nº Projeto: " + pj.getPriceHour());
-            }
-        }
-
+        public List<Tasks> getTasks() {
+        return tasks;
+    }
+        public void setTasks(List<Tasks> tasks) {
+        this.tasks = tasks;
+    }
         public String getName() {
             return name;
         }
@@ -90,6 +85,8 @@ public class Freelancer implements Serializable {
         public void setWorkHours(float workHours) {
         this.workHours = workHours;
     }
+
+
 }
 
 

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Projects implements Serializable {
+    private static final long serialVersionUID = 2992983569523313607L;
     private int idProjeto;
     private String name;
     private String client;

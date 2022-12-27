@@ -16,15 +16,18 @@ public class RepositoryProjects implements Serializable {
 
 
     public static RepositoryProjects getRepositoryProjects() {
-        ReentrantLock lock = new ReentrantLock();
-        lock.lock();
-        if (repoProjects == null)
-            repoProjects = new RepositoryProjects();
-        lock.unlock();
+        if (repoProjects == null) {
+            ReentrantLock lock = new ReentrantLock();
+            lock.lock();
+            if (repoProjects == null) {
+                repoProjects = new RepositoryProjects();
+            }
+            lock.unlock();
+        }
         return repoProjects;
     }
 
-    public static void serialize(Projects obj, String filename) throws IOException {
+    public static void serialize(Map<Integer,Projects> obj, String filename) throws IOException {
 
         try (FileOutputStream fos = new FileOutputStream(filename,true);
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {
@@ -33,13 +36,17 @@ public class RepositoryProjects implements Serializable {
         }
     }
 
-    public static Projects deserialize(String filename)throws IOException, ClassNotFoundException{
-        Projects result = null;
-        try (FileInputStream fis = new FileInputStream(filename);
-             ObjectInputStream ois = new ObjectInputStream(fis)) {
-            result = (Projects) ois.readObject();
+    public static Map<Integer, Projects> deserialize (String filename)throws IOException, ClassNotFoundException{
+        Map<Integer, Projects> result = null;
+        try {
+            try (FileInputStream fis = new FileInputStream(filename);
+                 ObjectInputStream ois = new ObjectInputStream(fis)) {
+                result = (Map<Integer, Projects>) ois.readObject();
+            }
+            return result;
+        } catch (EOFException e) {
+            return new HashMap<>();
         }
-        return result;
     }
 }
 
