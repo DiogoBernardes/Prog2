@@ -24,18 +24,16 @@ public class InsertProjectsController implements Initializable {
 
     @FXML
     void createProject(ActionEvent event){
-       /*try {
+       try {
             Projects p1 = new Projects();
-            SessionData sd = new SessionData();
-
-            p1.setFreelancer(sd.freelancer);
+            p1.setFreelancer(SessionData.freelancer);
             p1.setIdProjeto(RepositoryProjects.getRepositoryProjects().getProjects().size() + 1);
             p1.setName(nameProjectTextField.getText());
             p1.setClient(nameClientTextField.getText());
             p1.setPriceHour(Float.parseFloat(priceProjectTextField.getText()));
             p1.setState(ProjectState.CONFIRMADO);
 
-            ProjectREP.createProject(p1, sd.freelancer);
+            ProjectREP.createProject(p1, SessionData.freelancer);
 
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("FreelancerMenu.fxml"));
@@ -50,7 +48,7 @@ public class InsertProjectsController implements Initializable {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
     }
     @FXML
     void backMenu(ActionEvent event) {
@@ -68,7 +66,6 @@ public class InsertProjectsController implements Initializable {
 
     @Override
     public void initialize(URL url , ResourceBundle resourceBundle){
-       // Freelancer f = new Freelancer();
-        //f.setNIF(SessionData.freelancer.getNIF());
+
     }
 }

@@ -12,8 +12,8 @@ public class RepositoryFreelancer implements Serializable {
 
     public RepositoryFreelancer(){};
 
-    public Map<String, Freelancer> getFreelancer() {
-        return freelancer;}
+    public Map<String,Freelancer> getFreelancer() throws IOException, ClassNotFoundException {
+        return deserialize("src\\main\\resources\\ttts\\Data\\Freelancer.txt");}
 
 
 
@@ -30,7 +30,7 @@ public class RepositoryFreelancer implements Serializable {
     }
 
     public static void serialize(Map<String,Freelancer> obj, String filename) throws IOException {
-        try (FileOutputStream fos = new FileOutputStream(filename,true);
+        try (FileOutputStream fos = new FileOutputStream(filename);
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {
              oos.writeObject(obj);
              oos.flush();
@@ -39,11 +39,15 @@ public class RepositoryFreelancer implements Serializable {
 
     public static Map<String, Freelancer> deserialize(String filename) throws IOException, ClassNotFoundException {
         Map<String, Freelancer> result = null;
-        try (FileInputStream fis = new FileInputStream(filename);
-             ObjectInputStream ois = new ObjectInputStream(fis)) {
-            result = (Map<String, Freelancer>) ois.readObject();
+        try {
+            try (FileInputStream fis = new FileInputStream(filename);
+                 ObjectInputStream ois = new ObjectInputStream(fis)) {
+                result = (Map<String, Freelancer>) ois.readObject();
+            }
+            return result;
+        } catch (EOFException e) {
+            return new HashMap<>();
         }
-        return result;
     }
 }
 

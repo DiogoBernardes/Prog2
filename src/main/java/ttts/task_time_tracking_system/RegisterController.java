@@ -51,7 +51,7 @@ public class RegisterController implements Initializable {
     }
 
     @FXML
-    void registerFreelancer(ActionEvent event) throws LoginException {
+    void registerFreelancer(ActionEvent event) throws LoginException , ClassNotFoundException,IOException{
         if(registerNIFField.getLength()==9) {
             if(!RepositoryFreelancer.getRepositoryFreelancer().getFreelancer().containsKey(registerNIFField.getText())){
                 Freelancer f1 = new Freelancer();

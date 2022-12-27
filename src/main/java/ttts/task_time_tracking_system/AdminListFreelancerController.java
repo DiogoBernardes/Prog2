@@ -13,6 +13,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -49,18 +50,28 @@ public class AdminListFreelancerController implements Initializable {
         lastNameFreelancerAdmin.setEditable(false);
         nifFreelancerAdmin.setEditable(false);
         birthdateFreelancerAdmin.setEditable(false);
-
+        try{
         for(Freelancer f : RepositoryFreelancer.getRepositoryFreelancer().getFreelancer().values()) {
             selectFreelancerAdmin.getItems().addAll(f.getUsername());
+        }
+        }catch (IOException e){
+            e.getMessage();
+        }catch (ClassNotFoundException CE){
+            CE.getMessage();
         }
         selectFreelancerAdmin.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>(){
 
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-
+                try{
                 for(Freelancer f : RepositoryFreelancer.getRepositoryFreelancer().getFreelancer().values()) {
                     if(f.getUsername().equals(selectFreelancerAdmin.getSelectionModel().getSelectedItem()))
                         actualFreelancer = f;
+                }
+                }catch (IOException e){
+                    e.getMessage();
+                }catch (ClassNotFoundException CE){
+                    CE.getMessage();
                 }
                 firstNameFreelancerAdmin.setText(actualFreelancer.getName());
                 lastNameFreelancerAdmin.setText(actualFreelancer.getLastName());

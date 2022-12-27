@@ -38,8 +38,6 @@ public class LoginController implements Initializable {
         String pass = passwordTextField.getText();
         boolean found=false;
         try {
-            System.gc();//Limpar lixo
-            //Admin data = RepositoryAdmin.deserialize("src\\main\\resources\\ttts\\Data\\Admin.txt");
             RepositoryAdmin repoAdmin;
             repoAdmin=RepositoryAdmin.getRepositoryAdmin();
             for(Admin a : repoAdmin.getAdmin().values()){
@@ -53,11 +51,13 @@ public class LoginController implements Initializable {
                     stage.setTitle("Menu Cliente");
                     stage.show();
                 }}
+
                 Map<String, Freelancer> freelancers = RepositoryFreelancer.deserialize("src\\main\\resources\\ttts\\Data\\Freelancer.txt");
                 for (Freelancer f : freelancers.values()) {
                 if (user.equals(f.getUsername()) && pass.equals(f.getPassword())) {
                     found = true;
                     System.out.println("Login com Sucesso!");
+                    SessionData.freelancer = f;
                     Parent root = FXMLLoader.load(getClass().getResource("FreelancerMenu.fxml"));
                     Scene regCena = new Scene(root);
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
