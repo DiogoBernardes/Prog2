@@ -64,5 +64,18 @@ public class FreelancerMenuController {
             e.printStackTrace();
         }
     }
+    @FXML
+    void editProfileMenu(ActionEvent event){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("eProfileFreelancer.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Editar Perfil");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

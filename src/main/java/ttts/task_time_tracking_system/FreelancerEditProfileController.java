@@ -7,22 +7,27 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class FreelancerEditProfileController implements Initializable {
     @FXML
-    private TextField nameEditProfileFreelancer;
+    private TextField usernameFreelancer;
     @FXML
-    private TextField lastNameEditProfileFreelancer;
+    private PasswordField passFreelancer;
     @FXML
-    private TextField nifEditProfileFreelancer;
+    private TextField nameFreelancer;
     @FXML
-    private TextField birthDateEditProfileFreelancer;
-
+    private TextField lastNameFreelancer;
+    @FXML
+    private TextField dailyHoursFreelancer;
     Freelancer actualFreelancer;
     @FXML
     void backButton(ActionEvent event) {
@@ -38,20 +43,43 @@ public class FreelancerEditProfileController implements Initializable {
         }
     }
     @FXML
-    void editProfile(ActionEvent event) {
-       /* SessionData sd = new SessionData();
-        for (Freelancer f : RepositoryFreelancer.getRepositoryFreelancer().getFreelancer().values()) {
-            if (f.getUsername().equals(sd.freelancer.getUsername()))
-                actualFreelancer = f;
+    void editProfile(ActionEvent event) throws IOException, ClassNotFoundException{
+            Map<String, Freelancer> freelancers = RepositoryFreelancer.deserialize("src\\main\\resources\\ttts\\Data\\Freelancer.txt");
+            for (Freelancer f : freelancers.values()) {
+                if (f.getNIF().equals(SessionData.freelancer.getNIF())) {
+                    f.setName(nameFreelancer.getText());
+                    f.setLastName(lastNameFreelancer.getText());
+                    f.setUsername(usernameFreelancer.getText());
+                    f.setPassword(passFreelancer.getText());
+                    f.setWorkHours(Float.parseFloat(dailyHoursFreelancer.getText()));
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Sucesso");
+                    alert.setHeaderText("Dados Editados!");
+                    alert.show();
+                }
+            }
+        RepositoryFreelancer.getRepositoryFreelancer().serialize(freelancers,"src\\main\\resources\\ttts\\data\\Freelancer.txt");
         }
-        nameEditProfileFreelancer.setText(actualFreelancer.getName());
-        lastNameEditProfileFreelancer.setText(actualFreelancer.getLastName());
-        nifEditProfileFreelancer.setText(actualFreelancer.getNIF());
-        birthDateEditProfileFreelancer.setText(actualFreelancer.getBirthDate());*/
-    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            Map<String, Freelancer> freelancers = RepositoryFreelancer.deserialize("src\\main\\resources\\ttts\\Data\\Freelancer.txt");
 
+            for (Freelancer f : freelancers.values()) {
+                if (f.getNIF().equals(SessionData.freelancer.getNIF()))
+                    actualFreelancer = f;
+            }
+            nameFreelancer.setText(actualFreelancer.getName());
+            lastNameFreelancer.setText(actualFreelancer.getLastName());
+            usernameFreelancer.setText(actualFreelancer.getUsername());
+            passFreelancer.setText(actualFreelancer.getPassword());
+            dailyHoursFreelancer.setText(Float.toString(actualFreelancer.getWorkHours()));
+        }catch (IOException e){
+            e.getMessage();
+        }catch (ClassNotFoundException cE){
+            cE.getMessage();
+        }
     }
 }
 
