@@ -43,14 +43,14 @@ public class FreelancerChangeStateTaskController implements Initializable {
     @FXML
     void changeStateTask(ActionEvent event) throws IOException, ClassNotFoundException{
         Map<Integer, Tasks> task = RepositoryTasks.deserialize("src\\main\\resources\\ttts\\Data\\Tasks.txt");
-        for (Tasks t : task.values()) {
-            if (t.getFreelancer().getNIF().equals(SessionData.freelancer.getNIF())) {
-                t.setState((TaskState) state.getSelectionModel().getSelectedItem());
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Sucesso");
-                alert.setHeaderText("Dados Editados!");
-                alert.show();
-            }
+            for(Tasks t : task.values()){
+                if(t.getName().equals(actualTask.getName())) {
+                    t.setState((TaskState) state.getSelectionModel().getSelectedItem());
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Sucesso");
+                    alert.setHeaderText("Dados Editados!");
+                    alert.show();
+                }
         }
         RepositoryTasks.getRepositoryTasks().serialize(task,"src\\main\\resources\\ttts\\Data\\Tasks.txt");
     }
