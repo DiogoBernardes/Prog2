@@ -41,7 +41,7 @@ public class FreelancerRemoveProjectController implements Initializable {
         Map<Integer, Projects> projects = RepositoryProjects.deserialize("src\\main\\resources\\ttts\\Data\\Project.txt");
         for (Projects p : projects.values()) {
             if (p.getFreelancer().getNIF().equals(SessionData.freelancer.getNIF())) {
-                projects.remove(p.getIdProjeto());
+                projects.remove(actualProject.getIdProjeto());
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Sucesso");
                 alert.setHeaderText("Dados Removidos!");

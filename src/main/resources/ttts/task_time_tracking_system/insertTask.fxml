@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="306.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ttts.task_time_tracking_system.insertAssociateTaskController">
+   <top>
+      <AnchorPane prefHeight="69.0" prefWidth="341.0" style="-fx-background-color: FF8C00;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="70.0" layoutY="18.0" text="Inserir Tarefa" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: F0FFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <ComboBox fx:id="selectProject" layoutX="77.0" layoutY="81.0" prefWidth="150.0" promptText="Select Project" style="-fx-background-color: add8e6;" />
+            <Label layoutX="133.0" layoutY="64.0" text="Projeto" />
+            <TextField fx:id="nameTask" layoutX="78.0" layoutY="31.0" promptText="Task Name" style="-fx-background-color: add8e6;" />
+            <Label layoutX="110.0" layoutY="14.0" text="Nome da Tarefa" />
+            <TextField fx:id="descriptionTask" layoutX="21.0" layoutY="142.0" prefHeight="110.0" prefWidth="263.0" promptText="Description" style="-fx-background-color: add8e6;" />
+            <Label layoutX="126.0" layoutY="125.0" text="Descrição" />
+            <Button fx:id="insertButton" layoutX="65.0" layoutY="275.0" mnemonicParsing="false" onAction="#createTask" prefHeight="40.0" prefWidth="61.0" style="-fx-background-color: add8e6;" text="Inserir" />
+            <Button fx:id="backButton" layoutX="178.0" layoutY="275.0" mnemonicParsing="false" onAction="#backMenu" prefHeight="40.0" prefWidth="61.0" style="-fx-background-color: add8e6;" text="Voltar" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

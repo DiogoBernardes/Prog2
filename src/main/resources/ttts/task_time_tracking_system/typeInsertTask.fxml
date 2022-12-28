@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="259.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ttts.task_time_tracking_system.AssociateMenuController">
+   <top>
+      <AnchorPane prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: FF8C00;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="40.0" layoutY="19.0" text="Associar a Projeto?" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: F0FFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="connectTask" layoutX="34.0" layoutY="43.0" mnemonicParsing="false" onAction="#associate" prefHeight="51.0" prefWidth="86.0" style="-fx-background-color: add8e6;" text="Associar" />
+            <Button fx:id="notAssociateTask" layoutX="175.0" layoutY="43.0" mnemonicParsing="false" onAction="#notAssociate" prefHeight="51.0" prefWidth="86.0" style="-fx-background-color: add8e6;" text="Não Associar" />
+            <Button fx:id="backButton" layoutX="126.0" layoutY="140.0" mnemonicParsing="false" onAction="#backButton" prefHeight="27.0" prefWidth="49.0" style="-fx-background-color: add8e6;" text="Voltar" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
