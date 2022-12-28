@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="218.0" prefWidth="323.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ttts.task_time_tracking_system.FreelancerRemoveProjectController">
+   <top>
+      <AnchorPane prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: FF8C00;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="68.0" layoutY="16.0" prefHeight="44.0" prefWidth="188.0" text="Eliminar Projeto" textFill="#fff9f9">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: F0FFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <ComboBox fx:id="selectProject" layoutX="30.0" layoutY="31.0" prefHeight="25.0" prefWidth="264.0" promptText="Select Project" style="-fx-background-color: add8e6;" />
+            <Label layoutX="109.0" layoutY="14.0" text="Selecione o Projeto">
+               <font>
+                  <Font name="Segoe UI Italic" size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="removeProject" layoutX="57.0" layoutY="77.0" mnemonicParsing="false" onAction="#removeProject" prefHeight="41.0" prefWidth="68.0" style="-fx-background-color: FF8C00;" text="Eliminar" />
+            <Button fx:id="backButton" layoutX="200.0" layoutY="77.0" mnemonicParsing="false" onAction="#backButton" prefHeight="41.0" prefWidth="68.0" style="-fx-background-color: FF8C00;" text="Voltar" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
