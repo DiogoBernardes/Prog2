@@ -22,7 +22,7 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: F0FFFF;" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="createTaskMenu" layoutX="44.0" layoutY="54.0" mnemonicParsing="false" onAction="#createTask" prefHeight="51.0" prefWidth="112.0" style="-fx-background-color: add8e6;" text="Criar Tarefa" />
-            <Button fx:id="listTaskMenu" layoutX="257.0" layoutY="54.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" style="-fx-background-color: add8e6;" text="Listar Tarefas" />
+            <Button fx:id="listTaskMenu" layoutX="257.0" layoutY="54.0" mnemonicParsing="false" onAction="#listTask" prefHeight="51.0" prefWidth="112.0" style="-fx-background-color: add8e6;" text="Listar Tarefas" />
             <Button fx:id="removeTaskMenu" layoutX="44.0" layoutY="146.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" style="-fx-background-color: add8e6;" text="Remover Tarefas" />
             <Button fx:id="editTaskMenu" layoutX="257.0" layoutY="146.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" style="-fx-background-color: add8e6;" text="Editar Tarefas" />
             <Button fx:id="backButton" layoutX="313.0" layoutY="284.0" mnemonicParsing="false" onAction="#backButton" prefHeight="19.0" prefWidth="81.0" style="-fx-background-color: add8e6;" text="Voltar" />

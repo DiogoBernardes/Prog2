@@ -36,12 +36,13 @@ public class insertAssociateTaskController implements Initializable {
         try {
             Tasks t1 = new Tasks();
             t1.setIdTask(RepositoryTasks.getRepositoryTasks().getTasks().size() + 1);
-            t1.setNome(nameTask.getText());
+            t1.setName(nameTask.getText());
             t1.setDescription(descriptionTask.getText());
             t1.setProjects(actualProject);
             t1.setState(TaskState.CONFIRMADO);
             t1.setPriceHour(actualProject.getPriceHour());
             t1.setTaskStartDate(today.toString());
+            t1.setFreelancer(SessionData.freelancer);
             TaskREP.createAssociateTask(t1, actualProject, SessionData.freelancer);
             Alert alertDatInv = new Alert(Alert.AlertType.INFORMATION);
             alertDatInv.setTitle("Registado");

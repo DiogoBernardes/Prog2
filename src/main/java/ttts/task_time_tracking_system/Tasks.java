@@ -4,13 +4,15 @@ import java.io.Serializable;
 
 public class Tasks implements Serializable {
     private int idTask;
-    private String Nome;
+    private String Name;
     private Projects projects;
     private String taskStartDate;
     private String taskEndDate;
     private String Description;
     private float priceHour;
     private TaskState state;
+
+    private Freelancer freelancer;
 
     public Tasks(){}; //Construtor tarefas
 
@@ -21,11 +23,11 @@ public class Tasks implements Serializable {
     public void setIdTask(int idTask) {
         this.idTask = idTask;
     }
-    public String getNome() {
-        return Nome;
+    public String getName() {
+        return Name;
     }
-    public void setNome(String nome) {
-        Nome = nome;
+    public void setName(String name) {
+        Name = name;
     }
     public Projects getProjects() {
         return projects;
@@ -63,5 +65,11 @@ public class Tasks implements Serializable {
     }
     public void setState(TaskState state) {
         this.state = state;
+    }
+    public Freelancer getFreelancer() {
+        return freelancer;
+    }
+    public void setFreelancer(Freelancer freelancer) {
+        this.freelancer = freelancer;
     }
 }
