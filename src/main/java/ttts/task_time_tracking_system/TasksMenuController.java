@@ -34,7 +34,33 @@ public class TasksMenuController implements Initializable {
             Scene regCena = new Scene (root);
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(regCena);
-            stage.setTitle("Menu Freelancer");
+            stage.setTitle("Listar Tarefas");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void listCourseTask(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("freelancerListCourseTasks.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Listar Tarefas em Curso");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void changeStateTask(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("changeStateTask.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Listar Tarefas em Curso");
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
