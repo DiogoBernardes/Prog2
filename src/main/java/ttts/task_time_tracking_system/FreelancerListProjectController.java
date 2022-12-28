@@ -54,21 +54,28 @@ public class FreelancerListProjectController implements Initializable {
         priceHourProject.setEditable(false);
         stateProject.setEditable(false);
         try {
-            Map<Integer, Projects> projects = RepositoryProjects.deserialize("src\\main\\resources\\ttts\\Data\\Project.txt");
-
-            for (Projects p : projects.values()) {
+            for (Projects p : RepositoryProjects.getRepositoryProjects().getProjects().values()) {
                 if(SessionData.freelancer.getNIF().equals(p.getFreelancer().getNIF())) {
                     selectProject.getItems().addAll(p.getName());
                 }
-                }
+                } }catch (IOException e){
+            e.getMessage();
+        }catch (ClassNotFoundException CE){
+            CE.getMessage();
+        }
             selectProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
                 @Override
                 public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-
-                    for (Projects p : projects.values()) {
-                        if (p.getName().equals(selectProject.getSelectionModel().getSelectedItem()))
-                            actualProject = p;
+                    try {
+                        for (Projects p : RepositoryProjects.getRepositoryProjects().getProjects().values()) {
+                            if (p.getName().equals(selectProject.getSelectionModel().getSelectedItem()))
+                                actualProject = p;
+                        }
+                    }catch (IOException e) {
+                        e.getMessage();
+                    } catch (ClassNotFoundException cE) {
+                        cE.getMessage();
                     }
                     nameProject.setText(actualProject.getName());
                     clientProject.setText(actualProject.getClient());
@@ -76,10 +83,5 @@ public class FreelancerListProjectController implements Initializable {
                     stateProject.setText(actualProject.getState().toString());
                 }
             });
-        } catch (IOException e) {
-            e.getMessage();
-        } catch (ClassNotFoundException cE) {
-            cE.getMessage();
-        }
     }
 }

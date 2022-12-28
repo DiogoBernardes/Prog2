@@ -43,6 +43,19 @@ public class ProjectsMenuController implements Initializable {
             e.printStackTrace();
         }
     }
+    @FXML
+    void editProject(ActionEvent event){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("editProject.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Listar Projetos");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void backButton(ActionEvent event) {

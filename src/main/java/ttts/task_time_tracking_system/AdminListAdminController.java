@@ -13,6 +13,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -51,18 +52,28 @@ public class AdminListAdminController implements Initializable {
         usernameAdminListManage.setEditable(false);
         nifAdminListManage.setEditable(false);
         birthdateAdminListManage.setEditable(false);
-
-        for (Admin a : RepositoryAdmin.getRepositoryAdmin().getAdmin().values()) {
-            selectAdminListManage.getItems().addAll(a.getUsername());
+        try {
+            for (Admin a : RepositoryAdmin.getRepositoryAdmin().getAdmin().values()) {
+                selectAdminListManage.getItems().addAll(a.getUsername());
+            }
+        }catch (IOException e){
+            e.getMessage();
+        }catch (ClassNotFoundException CE){
+            CE.getMessage();
         }
         selectAdminListManage.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-
+                try {
                 for (Admin a : RepositoryAdmin.getRepositoryAdmin().getAdmin().values()) {
                     if (a.getUsername().equals(selectAdminListManage.getSelectionModel().getSelectedItem()))
                         actualAdmin = a;
+                }
+                }catch (IOException e){
+                    e.getMessage();
+                }catch (ClassNotFoundException CE){
+                    CE.getMessage();
                 }
                 nameAdminListManage.setText(actualAdmin.getName());
                 usernameAdminListManage.setText(actualAdmin.getUsername());

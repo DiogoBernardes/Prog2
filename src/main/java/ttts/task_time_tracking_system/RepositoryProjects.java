@@ -12,7 +12,9 @@ public class RepositoryProjects implements Serializable {
 
     public RepositoryProjects(){};
 
-    public Map<Integer, Projects> getProjects() {return projects;}
+    public Map<Integer, Projects> getProjects() throws IOException, ClassNotFoundException {
+        return deserialize("src\\main\\resources\\ttts\\Data\\Project.txt");
+    }
 
 
     public static RepositoryProjects getRepositoryProjects() {
@@ -29,7 +31,7 @@ public class RepositoryProjects implements Serializable {
 
     public static void serialize(Map<Integer,Projects> obj, String filename) throws IOException {
 
-        try (FileOutputStream fos = new FileOutputStream(filename,true);
+        try (FileOutputStream fos = new FileOutputStream(filename);
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {
             oos.writeObject(obj);
             oos.flush();

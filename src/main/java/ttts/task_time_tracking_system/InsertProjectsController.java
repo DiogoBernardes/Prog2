@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -32,9 +33,11 @@ public class InsertProjectsController implements Initializable {
             p1.setClient(nameClientTextField.getText());
             p1.setPriceHour(Float.parseFloat(priceProjectTextField.getText()));
             p1.setState(ProjectState.CONFIRMADO);
-
             ProjectREP.createProject(p1, SessionData.freelancer);
-
+            Alert alertDatInv = new Alert(Alert.AlertType.INFORMATION);
+            alertDatInv.setTitle("Registado");
+            alertDatInv.setHeaderText("Projeto Registado com sucesso!");
+            alertDatInv.show();
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("FreelancerMenu.fxml"));
                 Scene regCena = new Scene(root);

@@ -12,6 +12,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -29,7 +30,7 @@ public class adminRegisteAdminController implements Initializable {
 
 
     @FXML
-    void registerAdmin(ActionEvent event) throws LoginException{
+    void registerAdmin(ActionEvent event) throws LoginException, ClassNotFoundException, IOException {
         if(nifRegisterAdmin.getLength()==9) {
             if(!RepositoryAdmin.getRepositoryAdmin().getAdmin().containsKey(nifRegisterAdmin.getText())){
                 Admin admin = new Admin();

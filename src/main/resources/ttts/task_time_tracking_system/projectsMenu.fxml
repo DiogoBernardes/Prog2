@@ -24,7 +24,7 @@
             <Button fx:id="createProjectMenu" layoutX="54.0" layoutY="51.0" mnemonicParsing="false" onAction="#createProject" prefHeight="51.0" prefWidth="112.0" style="-fx-background-color: add8e6;" text="Criar Projeto" />
             <Button fx:id="listProjectMenu" layoutX="249.0" layoutY="51.0" mnemonicParsing="false" onAction="#listProject" prefHeight="51.0" prefWidth="113.0" style="-fx-background-color: add8e6;" text="Listar Projetos" />
             <Button fx:id="removeProjectMenu" layoutX="54.0" layoutY="164.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="114.0" style="-fx-background-color: add8e6;" text="Remover Projetos" />
-            <Button fx:id="editProjectMenu" layoutX="249.0" layoutY="164.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="114.0" style="-fx-background-color: add8e6;" text="Editar Projetos" />
+            <Button fx:id="editProjectMenu" layoutX="249.0" layoutY="164.0" mnemonicParsing="false" onAction="#editProject" prefHeight="51.0" prefWidth="114.0" style="-fx-background-color: add8e6;" text="Editar Projetos" />
             <Button fx:id="backButton" layoutX="320.0" layoutY="289.0" mnemonicParsing="false" onAction="#backButton" prefHeight="24.0" prefWidth="84.0" style="-fx-background-color: add8e6;" text="Voltar" />
          </children>
       </AnchorPane>

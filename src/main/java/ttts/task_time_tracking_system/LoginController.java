@@ -38,9 +38,8 @@ public class LoginController implements Initializable {
         String pass = passwordTextField.getText();
         boolean found=false;
         try {
-            RepositoryAdmin repoAdmin;
-            repoAdmin=RepositoryAdmin.getRepositoryAdmin();
-            for(Admin a : repoAdmin.getAdmin().values()){
+            Map<String, Admin> admins = RepositoryAdmin.deserialize("src\\main\\resources\\ttts\\Data\\Admin.txt");
+            for(Admin a : admins.values()){
                 if (user.equals(a.getUsername()) && pass.equals(a.getPassword())) {
                     found=true;
                     System.out.println("Login com Sucesso!");
