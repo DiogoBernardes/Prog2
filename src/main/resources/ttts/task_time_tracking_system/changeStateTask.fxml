@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="257.0" prefWidth="268.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ttts.task_time_tracking_system.FreelancerChangeStateTaskController">
    <top>
       <AnchorPane prefHeight="72.0" prefWidth="200.0" style="-fx-background-color: FF8C00;" BorderPane.alignment="CENTER">
@@ -29,14 +28,14 @@
                   <Font name="Segoe UI Italic" size="13.0" />
                </font>
             </Label>
-            <ComboBox layoutX="22.0" layoutY="80.0" prefHeight="20.0" prefWidth="227.0" promptText="state" style="-fx-background-color: add8e6;" />
+            <ComboBox fx:id="state" layoutX="22.0" layoutY="80.0" prefHeight="20.0" prefWidth="227.0" promptText="state" style="-fx-background-color: add8e6;" />
             <Label layoutX="116.0" layoutY="63.0" text="Estado">
                <font>
                   <Font name="Segoe UI Italic" size="13.0" />
                </font>
             </Label>
-            <Button layoutX="45.0" layoutY="131.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="65.0" style="-fx-background-color: FF8C00;" text="Alterar" />
-            <Button layoutX="153.0" layoutY="131.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="65.0" style="-fx-background-color: FF8C00;" text="Voltar" />
+            <Button fx:id="changeState" layoutX="45.0" layoutY="131.0" mnemonicParsing="false" onAction="#changeStateTask" prefHeight="36.0" prefWidth="65.0" style="-fx-background-color: FF8C00;" text="Alterar" />
+            <Button fx:id="backButton" layoutX="153.0" layoutY="131.0" mnemonicParsing="false" onAction="#backButton" prefHeight="36.0" prefWidth="65.0" style="-fx-background-color: FF8C00;" text="Voltar" />
          </children>
       </AnchorPane>
    </center>

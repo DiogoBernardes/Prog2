@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -16,15 +17,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class FreelancerChangeStateTaskController implements Initializable {
     @FXML
     private ComboBox selectTask;
     @FXML
-    private ComboBox<TaskState> state;
+    private ComboBox state;
     @FXML
 
     Tasks actualTask;
@@ -41,21 +40,37 @@ public class FreelancerChangeStateTaskController implements Initializable {
             e.printStackTrace();
         }
     }
+    @FXML
+    void changeStateTask(ActionEvent event) throws IOException, ClassNotFoundException{
+        Map<Integer, Tasks> task = RepositoryTasks.deserialize("src\\main\\resources\\ttts\\Data\\Tasks.txt");
+        for (Tasks t : task.values()) {
+            if (t.getFreelancer().getNIF().equals(SessionData.freelancer.getNIF())) {
+                t.setState((TaskState) state.getSelectionModel().getSelectedItem());
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Sucesso");
+                alert.setHeaderText("Dados Editados!");
+                alert.show();
+            }
+        }
+        RepositoryTasks.getRepositoryTasks().serialize(task,"src\\main\\resources\\ttts\\Data\\Tasks.txt");
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         try {
+            List<TaskState> taskStateList = new ArrayList<TaskState>(EnumSet.allOf(TaskState.class));
+            state.getItems().addAll(taskStateList);
             for (Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values()) {
                 if(SessionData.freelancer.getNIF().equals(t.getFreelancer().getNIF())) {
-                    List<TaskState> taskStateList = Arrays.asList(TaskState.values());
-                        selectTask.getItems().addAll(t.getName());
-                        state.getItems().addAll(taskStateList);
+                    selectTask.getItems().addAll(t.getName());
                     }
             } }catch (IOException e){
             e.getMessage();
         }catch (ClassNotFoundException CE){
             CE.getMessage();
+        }catch (NullPointerException NE){
+            NE.getMessage();
         }
         selectTask.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
