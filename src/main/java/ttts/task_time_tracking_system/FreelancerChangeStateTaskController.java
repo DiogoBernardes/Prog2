@@ -44,7 +44,7 @@ public class FreelancerChangeStateTaskController implements Initializable {
     void changeStateTask(ActionEvent event) throws IOException, ClassNotFoundException{
         Map<Integer, Tasks> task = RepositoryTasks.deserialize("src\\main\\resources\\ttts\\Data\\Tasks.txt");
             for(Tasks t : task.values()){
-                if(t.getName().equals(actualTask.getName())) {
+                if(t.getIdTask() == actualTask.getIdTask()) {
                     t.setState((TaskState) state.getSelectionModel().getSelectedItem());
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setTitle("Sucesso");
