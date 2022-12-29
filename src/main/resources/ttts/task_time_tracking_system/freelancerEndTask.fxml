@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="231.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ttts.task_time_tracking_system.FreelancerEndTaskController">
+   <top>
+      <AnchorPane prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: FF8C00;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="63.0" layoutY="19.0" text="Terminar Tarefa" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: F0FFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <ComboBox fx:id="selectTask" layoutX="51.0" layoutY="31.0" prefHeight="25.0" prefWidth="213.0" style="-fx-background-color: add8e6;" />
+            <Label layoutX="112.0" layoutY="14.0" text="Selecionar Tarefa" />
+            <Button fx:id="endTask" layoutX="63.0" layoutY="91.0" mnemonicParsing="false" onAction="#endTasks" prefHeight="42.0" prefWidth="68.0" style="-fx-background-color: FF8C00;" text="Terminar" />
+            <Button fx:id="backButton" layoutX="185.0" layoutY="91.0" mnemonicParsing="false" onAction="#backButton" prefHeight="42.0" prefWidth="63.0" style="-fx-background-color: FF8C00;" text="Voltar" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

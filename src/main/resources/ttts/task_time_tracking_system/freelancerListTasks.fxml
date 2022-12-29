@@ -24,42 +24,42 @@
    <center>
       <AnchorPane prefHeight="363.0" prefWidth="612.0" style="-fx-background-color: F0FFFF;" BorderPane.alignment="CENTER">
          <children>
-            <ComboBox fx:id="selectTask" layoutX="168.0" layoutY="31.0" prefHeight="25.0" prefWidth="264.0" promptText="Select Task" style="-fx-background-color: add8e6;" />
-            <Label layoutX="247.0" layoutY="14.0" text="Selecione a Tarefa">
+            <ComboBox fx:id="selectTask" layoutX="174.0" layoutY="31.0" prefHeight="25.0" prefWidth="264.0" promptText="Select Task" style="-fx-background-color: add8e6;" />
+            <Label layoutX="253.0" layoutY="14.0" text="Selecione a Tarefa">
                <font>
                   <Font name="Segoe UI Italic" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="32.0" layoutY="79.0" text="Nome Tarefa">
+            <Label layoutX="31.0" layoutY="79.0" text="Nome Tarefa">
                <font>
                   <Font name="Segoe UI Italic" size="13.0" />
                </font>
             </Label>
             <TextField fx:id="nameTask" editable="false" layoutX="32.0" layoutY="96.0" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: add8e6;" />
-            <Label layoutX="237.0" layoutY="79.0" text="Nome Projeto">
+            <Label layoutX="243.0" layoutY="79.0" text="Nome Projeto">
                <font>
                   <Font name="Segoe UI Italic" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="nameProject" editable="false" layoutX="237.0" layoutY="96.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
-            <Label layoutX="449.0" layoutY="79.0" text="Nome Cliente">
+            <TextField fx:id="nameProject" editable="false" layoutX="243.0" layoutY="96.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
+            <Label layoutX="455.0" layoutY="79.0" text="Nome Cliente">
                <font>
                   <Font name="Segoe UI Italic" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="nameClient" editable="false" layoutX="449.0" layoutY="96.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
-            <Label layoutX="30.0" layoutY="151.0" text="Preço Hora">
+            <TextField fx:id="nameClient" editable="false" layoutX="455.0" layoutY="96.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
+            <Label layoutX="36.0" layoutY="151.0" text="Preço Hora">
                <font>
                   <Font name="Segoe UI Italic" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="priceHour" editable="false" layoutX="30.0" layoutY="168.0" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: add8e6;" />
-            <Label layoutX="235.0" layoutY="151.0" text="Data Inicio">
+            <TextField fx:id="priceHour" editable="false" layoutX="32.0" layoutY="168.0" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: add8e6;" />
+            <Label layoutX="241.0" layoutY="151.0" text="Data Inicio">
                <font>
                   <Font name="Segoe UI Italic" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="startDate" editable="false" layoutX="235.0" layoutY="168.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
+            <TextField fx:id="startDate" editable="false" layoutX="241.0" layoutY="168.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
             <Label layoutX="447.0" layoutY="151.0" text="Data Fim">
                <font>
                   <Font name="Segoe UI Italic" size="13.0" />
