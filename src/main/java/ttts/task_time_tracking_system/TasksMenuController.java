@@ -66,6 +66,32 @@ public class TasksMenuController implements Initializable {
             e.printStackTrace();
         }
     }
+    @FXML
+    void listEndTask(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("freelancerListEndTasks.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Listar Tarefas Finalizadas");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void editTask(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("editTasks.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Listar Tarefas Finalizadas");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
         @FXML
         void backButton(ActionEvent event) {
             try {

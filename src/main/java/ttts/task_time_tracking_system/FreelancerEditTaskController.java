@@ -1,4 +1,5 @@
 package ttts.task_time_tracking_system;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -8,14 +9,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
-public class FreelancerListTasksController implements Initializable {
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+
+public class FreelancerEditTaskController implements Initializable {
     @FXML
     private TextField nameTask;
     @FXML
@@ -49,16 +54,27 @@ public class FreelancerListTasksController implements Initializable {
             e.printStackTrace();
         }
     }
+    @FXML
+    void editTasks(ActionEvent event) throws IOException, ClassNotFoundException{
+        Map<Integer, Tasks> tasks = RepositoryTasks.deserialize("src\\main\\resources\\ttts\\Data\\Tasks.txt");
+        for (Tasks t : tasks.values()) {
+            if (t.getIdTask() == actualTask.getIdTask()) {
+                t.setName(nameTask.getText());
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Sucesso");
+                alert.setHeaderText("Dados Editados!");
+                alert.show();
+            }
+        }
+        RepositoryTasks.getRepositoryTasks().serialize(tasks,"src\\main\\resources\\ttts\\Data\\Tasks.txt");
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        nameTask.setEditable(false);
-        nameProject.setEditable(false);
         priceHour.setEditable(false);
         nameClient.setEditable(false);
         startDate.setEditable(false);
         endDate.setEditable(false);
         stateTask.setEditable(false);
-        descriptionTask.setEditable(false);
         try {
             for (Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values()) {
                 if(SessionData.freelancer.getNIF().equals(t.getFreelancer().getNIF())) {
