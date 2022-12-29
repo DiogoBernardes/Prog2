@@ -105,6 +105,19 @@ public class TasksMenuController implements Initializable {
             e.printStackTrace();
         }
     }
+    @FXML
+    void removeTask(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("freelancerRemoveTask.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Remover Tarefa");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
         @FXML
         void backButton(ActionEvent event) {
             try {

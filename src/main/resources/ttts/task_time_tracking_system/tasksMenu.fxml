@@ -23,7 +23,7 @@
          <children>
             <Button fx:id="createTaskMenu" layoutX="44.0" layoutY="29.0" mnemonicParsing="false" onAction="#createTask" prefHeight="51.0" prefWidth="112.0" style="-fx-background-color: add8e6;" text="Criar Tarefa" />
             <Button fx:id="listTaskMenu" layoutX="257.0" layoutY="29.0" mnemonicParsing="false" onAction="#listTask" prefHeight="51.0" prefWidth="112.0" style="-fx-background-color: add8e6;" text="Listar Tarefas" />
-            <Button fx:id="removeTaskMenu" layoutX="44.0" layoutY="172.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="112.0" style="-fx-background-color: add8e6;" text="Remover Tarefas" />
+            <Button fx:id="removeTaskMenu" layoutX="44.0" layoutY="172.0" mnemonicParsing="false" onAction="#removeTask" prefHeight="51.0" prefWidth="112.0" style="-fx-background-color: add8e6;" text="Remover Tarefas" />
             <Button fx:id="editTaskMenu" layoutX="257.0" layoutY="172.0" mnemonicParsing="false" onAction="#editTask" prefHeight="51.0" prefWidth="112.0" style="-fx-background-color: add8e6;" text="Editar Tarefas" />
             <Button fx:id="backButton" layoutX="171.0" layoutY="316.0" mnemonicParsing="false" onAction="#backButton" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: FF8C00;" text="Voltar" />
             <Button fx:id="listCourseTask" layoutX="44.0" layoutY="100.0" mnemonicParsing="false" onAction="#listCourseTask" prefHeight="51.0" prefWidth="112.0" style="-fx-background-color: add8e6;" text="Tarefas em Curso" />
