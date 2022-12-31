@@ -20,7 +20,6 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class insertAssociateTaskController implements Initializable {
-
     @FXML
     private ComboBox selectProject;
     @FXML

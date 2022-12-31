@@ -3,6 +3,7 @@ package ttts.task_time_tracking_system;
 import java.io.Serializable;
 
 public class Tasks implements Serializable {
+   private static final long serialVersionUID = -7000836263110525581L;;
     private int idTask;
     private String Name;
     private Projects projects;
@@ -10,6 +11,7 @@ public class Tasks implements Serializable {
     private String taskEndDate;
     private String Description;
     private float priceHour;
+    private float hours;
     private TaskState state;
 
     private Freelancer freelancer;
@@ -59,6 +61,12 @@ public class Tasks implements Serializable {
     public void setPriceHour(float priceHour) {
         this.priceHour = priceHour;
     }
+    public float getHours() {
+        return hours;
+    }
+    public void setHours(float hours) {
+        this.hours = hours;
+    }
 
     public TaskState getState() {
         return state;
@@ -71,5 +79,11 @@ public class Tasks implements Serializable {
     }
     public void setFreelancer(Freelancer freelancer) {
         this.freelancer = freelancer;
+    }
+
+    public float totalPrice(){
+        float total=0;
+        total= this.hours * this.priceHour;
+        return total;
     }
 }

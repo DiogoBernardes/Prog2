@@ -80,6 +80,12 @@
             <Button fx:id="editButton" layoutX="352.0" layoutY="362.0" mnemonicParsing="false" onAction="#editTasks" prefHeight="40.0" prefWidth="86.0" style="-fx-background-color: FF8C00;" text="Editar" />
             <TextField fx:id="nameProject" editable="false" layoutX="239.0" layoutY="100.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
             <TextField fx:id="endDate" editable="false" layoutX="449.0" layoutY="165.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
+            <Label layoutX="25.0" layoutY="267.0" text="Horas Tarefa">
+               <font>
+                  <Font name="Segoe UI Italic" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="hoursTask" layoutX="25.0" layoutY="284.0" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: add8e6;" />
          </children>
       </AnchorPane>
    </center>

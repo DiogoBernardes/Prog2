@@ -36,6 +36,8 @@ public class FreelancerEditTaskController implements Initializable {
     @FXML
     private TextField stateTask;
     @FXML
+    private TextField hoursTask;
+    @FXML
     private ComboBox selectTask;
     @FXML
     private TextArea descriptionTask;
@@ -60,6 +62,7 @@ public class FreelancerEditTaskController implements Initializable {
         for (Tasks t : tasks.values()) {
             if (t.getIdTask() == actualTask.getIdTask()) {
                 t.setName(nameTask.getText());
+                t.setHours(Float.parseFloat(hoursTask.getText()));
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Sucesso");
                 alert.setHeaderText("Dados Editados!");
@@ -115,6 +118,7 @@ public class FreelancerEditTaskController implements Initializable {
                 endDate.setText(actualTask.getTaskEndDate());
                 stateTask.setText(actualTask.getState().toString());
                 descriptionTask.setText(actualTask.getDescription());
+                hoursTask.setText(Float.toString(actualTask.getHours()));
             }
         });
     }

@@ -29,6 +29,11 @@ public class FreelancerListTasksController implements Initializable {
     @FXML
     private TextField endDate;
     @FXML
+    private TextField hoursTask;
+    @FXML
+    private TextField totalPriceTask;
+
+    @FXML
     private TextField stateTask;
     @FXML
     private ComboBox selectTask;
@@ -59,6 +64,8 @@ public class FreelancerListTasksController implements Initializable {
         endDate.setEditable(false);
         stateTask.setEditable(false);
         descriptionTask.setEditable(false);
+        hoursTask.setEditable(false);
+        totalPriceTask.setEditable(false);
         try {
             for (Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values()) {
                 if(SessionData.freelancer.getNIF().equals(t.getFreelancer().getNIF())) {
@@ -99,6 +106,9 @@ public class FreelancerListTasksController implements Initializable {
                 endDate.setText(actualTask.getTaskEndDate());
                 stateTask.setText(actualTask.getState().toString());
                 descriptionTask.setText(actualTask.getDescription());
+                hoursTask.setText(Float.toString(actualTask.getHours()));
+                totalPriceTask.setText(Float.toString(actualTask.totalPrice()));
+
             }
         });
     }

@@ -3,17 +3,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="381.0" prefWidth="333.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="679.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ttts.task_time_tracking_system.FreelancerListEndTasksController">
    <top>
       <AnchorPane prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: FF8C00;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="22.0" layoutY="19.0" text="Listar Tarefas Finalizadas" textFill="WHITE">
+            <Label layoutX="151.0" layoutY="19.0" text="Listar Tarefas Finalizadas" textFill="WHITE">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="23.0" />
                </font>
@@ -22,16 +23,75 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane fx:id="backButton" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: F0FFFF;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: F0FFFF;" BorderPane.alignment="CENTER">
          <children>
-            <DatePicker fx:id="firstDate" layoutX="14.0" layoutY="38.0" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: add8e6;" />
-            <DatePicker fx:id="lastDate" layoutX="182.0" layoutY="38.0" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: add8e6;" />
-            <Label layoutX="15.0" layoutY="21.0" text="Data Inicio" />
-            <Label layoutX="182.0" layoutY="21.0" text="Data Fim" />
-            <TextArea fx:id="listTasks" layoutX="24.0" layoutY="111.0" prefHeight="132.0" prefWidth="286.0" style="-fx-background-color: add8e6;" />
-            <Label layoutX="24.0" layoutY="94.0" text="Tarefas Finalizadas" />
-            <Button layoutX="199.0" layoutY="259.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="63.0" style="-fx-background-color: FF8C00;" text="Voltar" />
-            <Button fx:id="listButton" layoutX="79.0" layoutY="259.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="63.0" style="-fx-background-color: FF8C00;" text="Listar" />
+            <DatePicker fx:id="firstDate" layoutX="111.0" layoutY="26.0" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: add8e6;" />
+            <DatePicker fx:id="lastDate" layoutX="336.0" layoutY="26.0" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: add8e6;" />
+            <Label layoutX="114.0" layoutY="13.0" text="Data Inicio" />
+            <Label layoutX="336.0" layoutY="13.0" text="Data Fim" />
+            <Button fx:id="backButton" layoutX="476.0" layoutY="542.0" mnemonicParsing="false" onAction="#backButton" prefHeight="38.0" prefWidth="63.0" style="-fx-background-color: FF8C00;" text="Voltar" />
+            <Label layoutX="25.0" layoutY="231.0" text="Nome Tarefa">
+               <font>
+                  <Font name="Segoe UI Italic" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameTask" editable="false" layoutX="25.0" layoutY="248.0" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: add8e6;" />
+            <Label layoutX="235.0" layoutY="231.0" text="Nome Projeto">
+               <font>
+                  <Font name="Segoe UI Italic" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameProject" editable="false" layoutX="235.0" layoutY="248.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
+            <Label layoutX="447.0" layoutY="231.0" text="Nome Cliente">
+               <font>
+                  <Font name="Segoe UI Italic" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameClient" editable="false" layoutX="445.0" layoutY="248.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
+            <Label layoutX="25.0" layoutY="310.0" text="Preço Hora">
+               <font>
+                  <Font name="Segoe UI Italic" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="priceHour" editable="false" layoutX="25.0" layoutY="327.0" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: add8e6;" />
+            <Label layoutX="235.0" layoutY="310.0" text="Data Inicio">
+               <font>
+                  <Font name="Segoe UI Italic" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="startDate" editable="false" layoutX="235.0" layoutY="327.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
+            <Label layoutX="447.0" layoutY="310.0" text="Data Fim">
+               <font>
+                  <Font name="Segoe UI Italic" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="endDate" editable="false" layoutX="445.0" layoutY="327.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
+            <Label layoutX="25.0" layoutY="384.0" text="Estado">
+               <font>
+                  <Font name="Segoe UI Italic" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="stateTask" editable="false" layoutX="25.0" layoutY="401.0" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: add8e6;" />
+            <TextArea fx:id="descriptionTask" editable="false" layoutX="175.0" layoutY="401.0" prefHeight="105.0" prefWidth="395.0" style="-fx-background-color: add8e6;" />
+            <Label layoutX="175.0" layoutY="384.0" text="Descrição">
+               <font>
+                  <Font name="Segoe UI Italic" size="13.0" />
+               </font>
+            </Label>
+            <ListView fx:id="tasksListView" layoutX="80.0" layoutY="63.0" prefHeight="149.0" prefWidth="427.0" style="-fx-background-color: add8e6;" />
+            <Button fx:id="listTaskButton" layoutX="384.0" layoutY="542.0" mnemonicParsing="false" onAction="#listTasks" prefHeight="38.0" prefWidth="63.0" style="-fx-background-color: FF8C00;" text="Listar" />
+            <Label layoutX="25.0" layoutY="433.0" text="Horas">
+               <font>
+                  <Font name="Segoe UI Italic" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="hoursTask" editable="false" layoutX="25.0" layoutY="450.0" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: add8e6;" />
+            <Label layoutX="25.0" layoutY="485.0" text="Preço Total">
+               <font>
+                  <Font name="Segoe UI Italic" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="totalPriceTask" editable="false" layoutX="25.0" layoutY="502.0" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: add8e6;" />
          </children>
       </AnchorPane>
    </center>

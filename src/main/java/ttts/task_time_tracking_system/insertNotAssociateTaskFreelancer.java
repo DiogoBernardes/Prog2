@@ -40,6 +40,7 @@ public class insertNotAssociateTaskFreelancer implements Initializable {
             t1.setPriceHour(Float.parseFloat(priceHour.getText()));
             t1.setTaskStartDate(today.toString());
             t1.setFreelancer(SessionData.freelancer);
+            t1.setHours(0);
             TaskREP.createNotAssociateTask(t1,SessionData.freelancer);
             Alert alertDatInv = new Alert(Alert.AlertType.INFORMATION);
             alertDatInv.setTitle("Registado");
