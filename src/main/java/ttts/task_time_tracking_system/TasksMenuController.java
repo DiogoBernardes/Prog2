@@ -131,7 +131,19 @@ public class TasksMenuController implements Initializable {
                 e.printStackTrace();
             }
         }
-
+    @FXML
+    void monthlyReportTask(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("monthlyReportTask.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Editar Tarefas");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
 

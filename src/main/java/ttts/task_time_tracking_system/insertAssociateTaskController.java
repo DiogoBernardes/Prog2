@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -28,7 +29,9 @@ public class insertAssociateTaskController implements Initializable {
     private TextField descriptionTask;
 
     Projects actualProject;
-
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+    Date today = new Date();
+    String startDate = formatter.format(today);
     @FXML
     void createTask(ActionEvent event){
         Date today = new Date();
@@ -40,7 +43,7 @@ public class insertAssociateTaskController implements Initializable {
             t1.setProjects(actualProject);
             t1.setState(TaskState.CONFIRMADO);
             t1.setPriceHour(actualProject.getPriceHour());
-            t1.setTaskStartDate(today.toString());
+            t1.setTaskStartDate(startDate);
             t1.setFreelancer(SessionData.freelancer);
             TaskREP.createAssociateTask(t1, actualProject, SessionData.freelancer);
             Alert alertDatInv = new Alert(Alert.AlertType.INFORMATION);

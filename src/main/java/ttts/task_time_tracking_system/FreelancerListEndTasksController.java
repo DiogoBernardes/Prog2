@@ -14,6 +14,7 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.chrono.ChronoLocalDate;
 import java.time.format.DateTimeFormatter;
@@ -49,8 +50,9 @@ public class FreelancerListEndTasksController implements Initializable {
     @FXML
     private ListView tasksListView;
 
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     Tasks actualTask;
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
     @FXML
     void backButton(ActionEvent event) {
         try {
@@ -67,8 +69,9 @@ public class FreelancerListEndTasksController implements Initializable {
    @FXML
     void listTasks(ActionEvent event) {
         try {
-            LocalDate inicio = firstDate.getValue();
+            LocalDate inicio =firstDate.getValue();
             LocalDate fim = lastDate.getValue();
+
             for (Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values()) {
                 if (t.getFreelancer().equals(SessionData.freelancer.getName()))
                     if (inicio.isBefore(ChronoLocalDate.from(formatter.parse(t.getTaskEndDate()))) && fim.isAfter(ChronoLocalDate.from(formatter.parse(t.getTaskEndDate()))))

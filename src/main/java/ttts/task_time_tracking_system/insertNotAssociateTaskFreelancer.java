@@ -17,6 +17,7 @@ import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -27,7 +28,9 @@ public class insertNotAssociateTaskFreelancer implements Initializable {
     private TextField descriptionTask;
     @FXML
     private TextField priceHour;
-
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+    Date today = new Date();
+    String startDate = formatter.format(today);
     @FXML
     void createTask(ActionEvent event){
         Date today = new Date();
@@ -38,7 +41,7 @@ public class insertNotAssociateTaskFreelancer implements Initializable {
             t1.setDescription(descriptionTask.getText());
             t1.setState(TaskState.CONFIRMADO);
             t1.setPriceHour(Float.parseFloat(priceHour.getText()));
-            t1.setTaskStartDate(today.toString());
+            t1.setTaskStartDate(startDate);
             t1.setFreelancer(SessionData.freelancer);
             t1.setHours(0);
             TaskREP.createNotAssociateTask(t1,SessionData.freelancer);

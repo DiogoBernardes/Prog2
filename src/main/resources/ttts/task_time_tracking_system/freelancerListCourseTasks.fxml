@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ttts.task_time_tracking_system.FreelancerListCourseTasksController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ttts.task_time_tracking_system.FreelancerListCourseTasksController">
    <top>
       <AnchorPane prefHeight="72.0" prefWidth="600.0" style="-fx-background-color: FF8C00;" BorderPane.alignment="CENTER">
          <children>
@@ -41,13 +41,13 @@
                   <Font name="Segoe UI Italic" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="startDateTask" editable="false" layoutX="220.0" layoutY="135.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
+            <TextField fx:id="startDate" editable="false" layoutX="220.0" layoutY="135.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
             <Label layoutX="403.0" layoutY="67.0" text="Nome Cliente">
                <font>
                   <Font name="Segoe UI Italic" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="endDateTask" editable="false" layoutX="403.0" layoutY="135.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
+            <TextField fx:id="endDate" editable="false" layoutX="403.0" layoutY="135.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
             <Label layoutX="32.0" layoutY="118.0" text="Preço Hora">
                <font>
                   <Font name="Segoe UI Italic" size="13.0" />
@@ -59,19 +59,19 @@
                   <Font name="Segoe UI Italic" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="clientTask" editable="false" layoutX="403.0" layoutY="80.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
+            <TextField fx:id="nameClient" editable="false" layoutX="403.0" layoutY="80.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
             <Label layoutX="403.0" layoutY="118.0" text="Data Fim">
                <font>
                   <Font name="Segoe UI Italic" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="priceTask" editable="false" layoutX="32.0" layoutY="135.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
+            <TextField fx:id="priceHour" editable="false" layoutX="32.0" layoutY="135.0" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: add8e6;" />
             <Label layoutX="35.0" layoutY="167.0" text="Estado">
                <font>
                   <Font name="Segoe UI Italic" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="projectTask" editable="false" layoutX="220.0" layoutY="80.0" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: add8e6;" />
+            <TextField fx:id="nameProject" editable="false" layoutX="220.0" layoutY="80.0" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: add8e6;" />
             <TextArea fx:id="descriptionTask" editable="false" layoutX="182.0" layoutY="185.0" prefHeight="105.0" prefWidth="375.0" style="-fx-background-color: add8e6;" />
             <Label layoutX="182.0" layoutY="167.0" text="Descrição">
                <font>

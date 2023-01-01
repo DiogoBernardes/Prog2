@@ -54,54 +54,63 @@ public class FreelancerListCourseTasksController implements Initializable {
             }
         }
 
-        @Override
-        public void initialize(URL url, ResourceBundle resourceBundle) {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        nameTask.setEditable(false);
+        nameProject.setEditable(false);
+        priceHour.setEditable(false);
+        nameClient.setEditable(false);
+        startDate.setEditable(false);
+        endDate.setEditable(false);
+        stateTask.setEditable(false);
+        descriptionTask.setEditable(false);
 
-            try {
-                for (Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values()) {
-                    if(SessionData.freelancer.getNIF().equals(t.getFreelancer().getNIF())) {
-                        if(t.getState().equals(TaskState.EM_CURSO)) {
-                            selectTask.getItems().addAll(t.getName());
-                        }
+        try {
+            for (Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values()) {
+                if(SessionData.freelancer.getNIF().equals(t.getFreelancer().getNIF())) {
+                    if (t.getState().equals(TaskState.EM_CURSO)) {
+                        selectTask.getItems().addAll(t.getName());
                     }
-                } }catch (IOException e){
-                e.getMessage();
-            }catch (ClassNotFoundException CE){
-                CE.getMessage();
-            }
-            selectTask.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-
-                @Override
-                public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                    try {
-                        for (Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values()){
-                            if (t.getName().equals(selectTask.getSelectionModel().getSelectedItem()))
-                                actualTask = t;
-                        }
-                    }catch (IOException e) {
-                        e.getMessage();
-                    } catch (ClassNotFoundException cE) {
-                        cE.getMessage();
-                    }
-                    nameTask.setText(actualTask.getName());
-                    if(actualTask.getProjects()== null){
-                        nameProject.setText("");
-                    }else {
-                        nameProject.setText(actualTask.getProjects().getName());
-                    }
-                    priceHour.setText(Float.toString(actualTask.getPriceHour()));
-                    if(actualTask.getProjects()==null){
-                        nameClient.setText("");
-                    }else {
-                        nameClient.setText(actualTask.getProjects().getClient());
-                    }
-                    startDate.setText(actualTask.getTaskStartDate());
-                    endDate.setText(actualTask.getTaskEndDate());
-                    stateTask.setText(actualTask.getState().toString());
-                    descriptionTask.setText(actualTask.getDescription());
-
                 }
-            });
+            }
+        }catch (IOException e){
+            e.getMessage();
+        }catch (ClassNotFoundException CE){
+            CE.getMessage();
         }
+        selectTask.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                try {
+                    for (Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values()){
+                        if (t.getName().equals(selectTask.getSelectionModel().getSelectedItem()))
+                            actualTask = t;
+                    }
+                }catch (IOException e) {
+                    e.getMessage();
+                } catch (ClassNotFoundException cE) {
+                    cE.getMessage();
+                }
+                nameTask.setText(actualTask.getName());
+                if(actualTask.getProjects()== null){
+                    nameProject.setText("");
+                }else {
+                    nameProject.setText(actualTask.getProjects().getName());
+                }
+                priceHour.setText(Float.toString(actualTask.getPriceHour()));
+                if(actualTask.getProjects()==null){
+                    nameClient.setText("");
+                }else {
+                    nameClient.setText(actualTask.getProjects().getClient());
+                }
+                startDate.setText(actualTask.getTaskStartDate());
+                endDate.setText(actualTask.getTaskEndDate());
+                stateTask.setText(actualTask.getState().toString());
+                descriptionTask.setText(actualTask.getDescription());
+
+            }
+        });
+    }
 }
 

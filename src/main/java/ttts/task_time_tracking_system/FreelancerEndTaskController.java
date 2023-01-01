@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -24,7 +25,9 @@ public class FreelancerEndTaskController implements Initializable {
     private ComboBox selectTask;
 
     Tasks actualTask;
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
     Date today = new Date();
+    String endDate = formatter.format(today);
     @FXML
     void backButton(ActionEvent event) {
         try {
@@ -44,7 +47,7 @@ public class FreelancerEndTaskController implements Initializable {
         for (Tasks t : tasks.values()) {
             if (t.getIdTask() == actualTask.getIdTask()) {
                 t.setState(TaskState.FINALIZADO);
-                t.setTaskEndDate(today.toString());
+                t.setTaskEndDate(endDate);
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Sucesso");
                 alert.setHeaderText("Tarefa Finalizada! Parabéns!!");

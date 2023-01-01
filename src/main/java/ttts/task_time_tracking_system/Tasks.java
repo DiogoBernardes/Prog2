@@ -3,7 +3,7 @@ package ttts.task_time_tracking_system;
 import java.io.Serializable;
 
 public class Tasks implements Serializable {
-   private static final long serialVersionUID = -7000836263110525581L;;
+    private static final long serialVersionUID = -7000836263110525581L;;
     private int idTask;
     private String Name;
     private Projects projects;
