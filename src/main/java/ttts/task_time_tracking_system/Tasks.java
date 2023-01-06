@@ -1,6 +1,8 @@
 package ttts.task_time_tracking_system;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Tasks implements Serializable {
     private static final long serialVersionUID = -7000836263110525581L;;
@@ -80,10 +82,14 @@ public class Tasks implements Serializable {
     public void setFreelancer(Freelancer freelancer) {
         this.freelancer = freelancer;
     }
-
     public float totalPrice(){
         float total=0;
         total= this.hours * this.priceHour;
         return total;
+    }
+    public LocalDate getStartDate (){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        LocalDate dateStart = LocalDate.parse(taskStartDate,formatter);
+        return dateStart;
     }
 }
