@@ -1,7 +1,6 @@
 package ttts.task_time_tracking_system;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,19 +10,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.w3c.dom.ls.LSOutput;
-
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.chrono.IsoChronology;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
-import java.util.Date;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class FreelancerMonthlyReportController implements Initializable {
@@ -77,6 +65,9 @@ public class FreelancerMonthlyReportController implements Initializable {
                     listTotHours.setText("");
                     listPriceHour.setText("");
                     listTotPrice.setText("");
+                    totPriceMonth = 0;
+                    totHoursMonth = 0;
+                    totTasksRealized = 0;
                     for(Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values()) {
                         if (t.getFreelancer().getNIF().equals(SessionData.freelancer.getNIF()))
                         if (t.getStartDate().getMonth().getValue() == (int) selectMonth.getValue() && t.getState().equals(TaskState.FINALIZADO)) {

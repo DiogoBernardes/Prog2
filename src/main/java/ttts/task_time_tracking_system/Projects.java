@@ -1,7 +1,10 @@
 package ttts.task_time_tracking_system;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Projects implements Serializable {
@@ -10,6 +13,7 @@ public class Projects implements Serializable {
     private String name;
     private String client;
 
+    private String startDate;
     private Freelancer freelancer;
     private float priceHour;
     private ProjectState state;
@@ -80,5 +84,18 @@ public class Projects implements Serializable {
 
     public void setTasks(List<Tasks> tasks) {
         this.tasks = tasks;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getStartDateProj (){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        LocalDate dateStart = LocalDate.parse(startDate,formatter);
+        return dateStart;
     }
 }

@@ -27,7 +27,6 @@ public class FreelancerListTasksProjectController implements Initializable {
     private ComboBox selectProject;
     @FXML
     private TextArea listTask;
-    Projects actualProject;
 
     @FXML
     void backButton(ActionEvent event) {
@@ -65,19 +64,13 @@ public class FreelancerListTasksProjectController implements Initializable {
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                 try {
                     for (Projects p : RepositoryProjects.getRepositoryProjects().getProjects().values()) {
-                        if (p.getName().equals(selectProject.getSelectionModel().getSelectedItem()))
-                            actualProject = p;
+                        if (p.getName().equals(selectProject.getSelectionModel().getSelectedItem())){
+                            Map<Integer, Tasks> task = RepositoryTasks.getRepositoryTasks().deserialize("src\\main\\resources\\ttts\\Data\\Tasks.txt");
+                            for(Tasks t : task.values())
+                                    listTask.setText(t.getName());
+                            }
                     }
                 } catch (IOException e) {
-                    e.getMessage();
-                } catch (ClassNotFoundException cE) {
-                    cE.getMessage();
-                }
-                try{
-                    for (Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values()){
-                            listTask.setText(t.getName());
-                        }
-                }catch (IOException e) {
                     e.getMessage();
                 } catch (ClassNotFoundException cE) {
                     cE.getMessage();

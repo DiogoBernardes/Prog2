@@ -21,12 +21,13 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: F0FFFF;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="createProjectMenu" layoutX="54.0" layoutY="51.0" mnemonicParsing="false" onAction="#createProject" prefHeight="51.0" prefWidth="112.0" style="-fx-background-color: add8e6;" text="Criar Projeto" />
-            <Button fx:id="listProjectMenu" layoutX="249.0" layoutY="51.0" mnemonicParsing="false" onAction="#listProject" prefHeight="51.0" prefWidth="113.0" style="-fx-background-color: add8e6;" text="Listar Projetos" />
-            <Button fx:id="removeProjectMenu" layoutX="53.0" layoutY="145.0" mnemonicParsing="false" onAction="#removeProject" prefHeight="51.0" prefWidth="114.0" style="-fx-background-color: add8e6;" text="Remover Projetos" />
-            <Button fx:id="editProjectMenu" layoutX="249.0" layoutY="145.0" mnemonicParsing="false" onAction="#editProject" prefHeight="51.0" prefWidth="114.0" style="-fx-background-color: add8e6;" text="Editar Projetos" />
+            <Button fx:id="createProjectMenu" layoutX="54.0" layoutY="51.0" mnemonicParsing="false" onAction="#createProject" prefHeight="51.0" prefWidth="118.0" style="-fx-background-color: add8e6;" text="Criar Projeto" />
+            <Button fx:id="listProjectMenu" layoutX="250.0" layoutY="51.0" mnemonicParsing="false" onAction="#listProject" prefHeight="51.0" prefWidth="113.0" style="-fx-background-color: add8e6;" text="Listar Projetos" />
+            <Button fx:id="removeProjectMenu" layoutX="52.0" layoutY="138.0" mnemonicParsing="false" onAction="#removeProject" prefHeight="51.0" prefWidth="120.0" style="-fx-background-color: add8e6;" text="Remover Projetos" />
+            <Button fx:id="editProjectMenu" layoutX="249.0" layoutY="138.0" mnemonicParsing="false" onAction="#editProject" prefHeight="51.0" prefWidth="114.0" style="-fx-background-color: add8e6;" text="Editar Projetos" />
             <Button fx:id="backButton" layoutX="318.0" layoutY="283.0" mnemonicParsing="false" onAction="#backButton" prefHeight="31.0" prefWidth="86.0" style="-fx-background-color: FF8C00;" text="Voltar" />
-            <Button fx:id="listTaskProject" layoutX="53.0" layoutY="221.0" mnemonicParsing="false" onAction="#listTasksProject" prefHeight="51.0" style="-fx-background-color: add8e6;" text="Listar Tarefas dos Projetos" />
+            <Button fx:id="listTaskProject" layoutX="53.0" layoutY="221.0" mnemonicParsing="false" onAction="#listTasksProject" prefHeight="51.0" prefWidth="117.0" style="-fx-background-color: add8e6;" text="Tarefas Associadas" />
+            <Button fx:id="monthlyReport" layoutX="249.0" layoutY="221.0" mnemonicParsing="false" onAction="#monthlyReportProjects" prefHeight="51.0" prefWidth="114.0" style="-fx-background-color: add8e6;" text="Relatório Mensal" />
          </children>
       </AnchorPane>
    </center>

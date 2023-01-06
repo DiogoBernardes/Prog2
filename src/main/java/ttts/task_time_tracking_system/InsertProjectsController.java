@@ -12,6 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class InsertProjectsController implements Initializable {
@@ -22,6 +24,9 @@ public class InsertProjectsController implements Initializable {
     private TextField nameClientTextField;
     @FXML
     private TextField priceProjectTextField;
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+    Date today = new Date();
+    String startDate = formatter.format(today);
 
     @FXML
     void createProject(ActionEvent event){
@@ -33,6 +38,7 @@ public class InsertProjectsController implements Initializable {
             p1.setClient(nameClientTextField.getText());
             p1.setPriceHour(Float.parseFloat(priceProjectTextField.getText()));
             p1.setState(ProjectState.CONFIRMADO);
+            p1.setStartDate(startDate);
             ProjectREP.createProject(p1, SessionData.freelancer);
             Alert alertDatInv = new Alert(Alert.AlertType.INFORMATION);
             alertDatInv.setTitle("Registado");
