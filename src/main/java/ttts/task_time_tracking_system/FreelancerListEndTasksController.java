@@ -68,15 +68,34 @@ public class FreelancerListEndTasksController implements Initializable {
     void listTasks(ActionEvent event) {
        LocalDate startDateTask = firstDate.getValue();
        LocalDate endDateTask = lastDate.getValue();
-       listTasks(startDateTask, endDateTask);
-       tasksList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Integer>(){
+       List<Tasks> tasksInRange = new ArrayList<>();
+       try {
+           for (Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values()) {
+               if(t.getFreelancer().getNIF().equals(SessionData.freelancer.getNIF()) && t.getState().equals(TaskState.FINALIZADO)) {
+                   if (t.getEndDate().isAfter(startDateTask) && t.getEndDate().isBefore(endDateTask)) {
+                       tasksInRange.add(t);
+                       tasksList.getItems().addAll(t.getName());
+                   }
+               }
+           }
+       }catch (IOException e) {
+           e.getMessage();
+       } catch (ClassNotFoundException cE) {
+           cE.getMessage();
+       }
+       tasksList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
             @Override
-            public void changed(ObservableValue<? extends Integer> observableValue, Integer integer, Integer t1) {
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1)  {
                 try{
                     for (Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values())  {
-                        if(t.getFreelancer().equals(SessionData.freelancer)  && tasksList.getSelectionModel().getSelectedItem().equals(t.getIdTask()))
+                        System.out.println(tasksList.getSelectionModel().getSelectedItem().toString());
+                        System.out.println(t.getName());
+                        System.out.println("-----------------------------------");
+                        if(t.getFreelancer().getNIF().equals(SessionData.freelancer.getNIF())  && t.getName().equals(tasksList.getSelectionModel().getSelectedItem())) {
+                            System.out.println("SOU LINDO");
                             actualTask = t;
+                        }
                     }
                 } catch (IOException e) {
                     e.getMessage();
@@ -87,27 +106,14 @@ public class FreelancerListEndTasksController implements Initializable {
                 nameProject.setText(actualTask.getProjects().getName());
                 nameClient.setText(actualTask.getProjects().getClient());
                 priceHour.setText(Float.toString(actualTask.getPriceHour()));
+                hoursTask.setText(Float.toString(actualTask.getHours()));
+                totalPriceTask.setText(Float.toString(actualTask.totalPrice()));
                 startDate.setText(actualTask.getTaskStartDate());
                 endDate.setText(actualTask.getTaskEndDate());
                 stateTask.setText(actualTask.getState().toString());
                 descriptionTask.setText(actualTask.getDescription());
             }
         });
-    }
-    private void listTasks(LocalDate startDateTask, LocalDate endDateTask) {
-        List<Tasks> tasksInRange = new ArrayList<>();
-        try {
-        for (Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values()) {
-            if (t.getEndDate().isAfter(startDateTask) && t.getEndDate().isBefore(endDateTask)) {
-                tasksInRange.add(t);
-            }
-        }
-        }catch (IOException e) {
-            e.getMessage();
-        } catch (ClassNotFoundException cE) {
-            cE.getMessage();
-        }
-        // Populate the UI element that displays the tasks
     }
 
     @Override
