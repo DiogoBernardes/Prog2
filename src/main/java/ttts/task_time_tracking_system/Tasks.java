@@ -92,4 +92,9 @@ public class Tasks implements Serializable {
         LocalDate dateStart = LocalDate.parse(taskStartDate,formatter);
         return dateStart;
     }
+    public LocalDate getEndDate (){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        LocalDate dateEnd = LocalDate.parse(taskEndDate,formatter);
+        return dateEnd;
+    }
 }

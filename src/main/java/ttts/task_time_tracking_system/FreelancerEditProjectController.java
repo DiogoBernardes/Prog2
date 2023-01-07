@@ -78,6 +78,16 @@ public class FreelancerEditProjectController implements Initializable{
         }catch (ClassNotFoundException CE){
             CE.getMessage();
         }
+        try {
+            for (Invitation i : RepositoryInvites.getRepositoryInvites().getInvitation().values()) {
+                if(SessionData.freelancer.getNIF().equals(i.getGuest().getNIF()) && i.isAnswer()) {
+                    selectProject.getItems().addAll(i.getProject().getName());
+                }
+            } }catch (IOException e){
+            e.getMessage();
+        }catch (ClassNotFoundException CE){
+            CE.getMessage();
+        }
         selectProject.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 
             @Override

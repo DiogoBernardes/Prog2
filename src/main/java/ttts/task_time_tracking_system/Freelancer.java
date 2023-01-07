@@ -1,4 +1,5 @@
 package ttts.task_time_tracking_system;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ public class Freelancer implements Serializable {
         private float workHours;
         private List<Projects> projects;
         private List<Tasks> tasks;
+        private List<Invitation> invitations;
 
         public Freelancer(){this.projects = new ArrayList<>();} //Construtor
 
@@ -31,6 +33,13 @@ public class Freelancer implements Serializable {
         public void setTasks(List<Tasks> tasks) {
         this.tasks = tasks;
     }
+        public List<Invitation> getInvitations() {
+        return invitations;
+    }
+        public void setInvitations(List<Invitation> invitations) {
+        this.invitations = invitations;
+    }
+
         public String getName() {
             return name;
         }
@@ -86,7 +95,23 @@ public class Freelancer implements Serializable {
         this.workHours = workHours;
     }
 
-
+    public void enviarConvite(Freelancer guest, Projects project){
+            Invitation invite = new Invitation(this,guest,project);
+            /*List<Invitation> invitation = new ArrayList<>();
+            invitation =  guest.getInvitations();
+            if(invitation ==null){
+                invitation.add(invite);
+            }else{
+                invitation.add(invite);
+            }*/
+            try {
+                InvitationREP.inviteGuestProject(invite);
+            }catch (IOException IE){
+                IE.getMessage();
+            }catch (ClassNotFoundException CE){
+                CE.getMessage();
+            }
+    }
 }
 
 

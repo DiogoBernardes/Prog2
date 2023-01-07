@@ -78,6 +78,19 @@ public class FreelancerMenuController {
         }
     }
     @FXML
+    void invites(ActionEvent event){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("acceptInviteFreelancer.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Convites");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
     void editProfileMenu(ActionEvent event){
         try {
             Parent root = FXMLLoader.load(getClass().getResource("eProfileFreelancer.fxml"));

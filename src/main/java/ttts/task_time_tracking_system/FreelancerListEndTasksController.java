@@ -18,9 +18,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.chrono.ChronoLocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class FreelancerListEndTasksController implements Initializable {
     @FXML
@@ -48,10 +46,10 @@ public class FreelancerListEndTasksController implements Initializable {
     @FXML
     private TextArea descriptionTask;
     @FXML
-    private ListView tasksListView;
-
+    private ComboBox tasksList;
     Tasks actualTask;
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
 
     @FXML
     void backButton(ActionEvent event) {
@@ -68,29 +66,16 @@ public class FreelancerListEndTasksController implements Initializable {
     }
    @FXML
     void listTasks(ActionEvent event) {
-        try {
-            LocalDate inicio =firstDate.getValue();
-            LocalDate fim = lastDate.getValue();
-
-            for (Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values()) {
-                if (t.getFreelancer().equals(SessionData.freelancer.getName()))
-                    if (inicio.isBefore(ChronoLocalDate.from(formatter.parse(t.getTaskEndDate()))) && fim.isAfter(ChronoLocalDate.from(formatter.parse(t.getTaskEndDate()))))
-                        tasksListView.getItems().addAll(t.getIdTask());
-            }
-        }catch (IOException e){
-            e.getMessage();
-        }catch (ClassNotFoundException CE){
-            CE.getMessage();
-        }catch(NullPointerException NE){
-            NE.getMessage();
-        }
-        tasksListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Integer>(){
+       LocalDate startDateTask = firstDate.getValue();
+       LocalDate endDateTask = lastDate.getValue();
+       listTasks(startDateTask, endDateTask);
+       tasksList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Integer>(){
 
             @Override
             public void changed(ObservableValue<? extends Integer> observableValue, Integer integer, Integer t1) {
                 try{
                     for (Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values())  {
-                        if(t.getFreelancer().equals(SessionData.freelancer)  && tasksListView.getSelectionModel().getSelectedItem().equals(t.getIdTask()))
+                        if(t.getFreelancer().equals(SessionData.freelancer)  && tasksList.getSelectionModel().getSelectedItem().equals(t.getIdTask()))
                             actualTask = t;
                     }
                 } catch (IOException e) {
@@ -109,27 +94,43 @@ public class FreelancerListEndTasksController implements Initializable {
             }
         });
     }
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        final Callback<DatePicker, DateCell> dayCellFactory =
-                new Callback<DatePicker, DateCell>() {
-                    @Override
-                    public DateCell call(final DatePicker datePicker) {
-                        return new DateCell() {
-                            @Override
-                            public void updateItem(LocalDate item, boolean empty) {
-                                super.updateItem(item, empty);
+    private void listTasks(LocalDate startDateTask, LocalDate endDateTask) {
+        List<Tasks> tasksInRange = new ArrayList<>();
+        try {
+        for (Tasks t : RepositoryTasks.getRepositoryTasks().getTasks().values()) {
+            if (t.getEndDate().isAfter(startDateTask) && t.getEndDate().isBefore(endDateTask)) {
+                tasksInRange.add(t);
+            }
+        }
+        }catch (IOException e) {
+            e.getMessage();
+        } catch (ClassNotFoundException cE) {
+            cE.getMessage();
+        }
+        // Populate the UI element that displays the tasks
+    }
 
-                                if (item.isBefore(
-                                        firstDate.getValue().plusDays(1))
-                                ) {
-                                    setDisable(true);
-                                    setStyle("-fx-background-color: #ffc0cb;");
-                                }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {      final Callback<DatePicker, DateCell> dayCellFactory =
+            new Callback<DatePicker, DateCell>() {
+                @Override
+                public DateCell call(final DatePicker datePicker) {
+                    return new DateCell() {
+                        @Override
+                        public void updateItem(LocalDate item, boolean empty) {
+                            super.updateItem(item, empty);
+
+                            if (item.isBefore(
+                                    firstDate.getValue().plusDays(1))
+                            ) {
+                                setDisable(true);
+                                setStyle("-fx-background-color: #ffc0cb;");
                             }
-                        };
-                    }
-                };
+                        }
+                    };
+                }
+            };
         lastDate.setDayCellFactory(dayCellFactory);
     }
 }
+

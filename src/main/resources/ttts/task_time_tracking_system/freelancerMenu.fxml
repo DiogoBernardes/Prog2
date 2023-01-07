@@ -23,8 +23,9 @@
          <children>
             <Button fx:id="manageProjects" layoutX="99.0" layoutY="57.0" mnemonicParsing="false" onAction="#projectsMenu" prefHeight="54.0" prefWidth="118.0" style="-fx-background-color: add8e6;" text="Gerir Projetos" />
             <Button fx:id="manageTasks" layoutX="263.0" layoutY="57.0" mnemonicParsing="false" onAction="#tasksMenu" prefHeight="54.0" prefWidth="118.0" style="-fx-background-color: add8e6;" text="Gerir Tarefas" />
-            <Button fx:id="editProfile" layoutX="182.0" layoutY="132.0" mnemonicParsing="false" onAction="#editProfileMenu" prefHeight="54.0" prefWidth="118.0" style="-fx-background-color: add8e6;" text="Editar Dados" />
+            <Button fx:id="editProfile" layoutX="99.0" layoutY="132.0" mnemonicParsing="false" onAction="#editProfileMenu" prefHeight="54.0" prefWidth="118.0" style="-fx-background-color: add8e6;" text="Editar Dados" />
             <Button fx:id="LogoutButton" layoutX="363.0" layoutY="266.0" mnemonicParsing="false" onAction="#logout" prefHeight="37.0" prefWidth="96.0" style="-fx-background-color: FF8C00;" text="Logout" />
+            <Button fx:id="inviteMenuFreelancer" layoutX="263.0" layoutY="132.0" mnemonicParsing="false" onAction="#invites" prefHeight="54.0" prefWidth="118.0" style="-fx-background-color: add8e6;" text="Convites" />
          </children>
       </AnchorPane>
    </bottom>

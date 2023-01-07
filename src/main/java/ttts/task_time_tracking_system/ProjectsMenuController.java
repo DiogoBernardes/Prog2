@@ -95,6 +95,19 @@ public class ProjectsMenuController implements Initializable {
             e.printStackTrace();
         }
     }
+    @FXML
+    void sendInvite(ActionEvent event){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("inviteFreelancerProject.fxml"));
+            Scene regCena = new Scene (root);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(regCena);
+            stage.setTitle("Convidar Freelancer");
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void backButton(ActionEvent event) {

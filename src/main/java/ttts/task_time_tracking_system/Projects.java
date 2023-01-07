@@ -12,16 +12,26 @@ public class Projects implements Serializable {
     private int idProjeto;
     private String name;
     private String client;
-
     private String startDate;
     private Freelancer freelancer;
     private float priceHour;
     private ProjectState state;
     private List<Tasks> tasks;
 
-    public Projects(){this.tasks = new ArrayList<>();} //Construtor
+    private List<Freelancer> guests;
+
+    public Projects(){ //Construtor
+        this.guests = new ArrayList<>();
+        this.tasks = new ArrayList<>();
+    }
 
     public List<Tasks> getTasks(){return tasks;} //getter das tarefas
+    public List<Freelancer> getGuests() {
+        return guests;
+    }
+    public void setGuests(List<Freelancer> guests) {
+        this.guests = guests;
+    }
 
     public void ListTasks(){
         int numTasks = 1;
