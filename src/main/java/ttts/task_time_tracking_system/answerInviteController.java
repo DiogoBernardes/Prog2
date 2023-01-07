@@ -43,8 +43,8 @@ public class answerInviteController implements Initializable {
             if (i.getGuest().getNIF().equals(SessionData.freelancer.getNIF())) {
                 i.setAnswer(false);
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Sucesso");
-                alert.setHeaderText("Convite aceite");
+                alert.setTitle("Error");
+                alert.setHeaderText("Convite Rejeitado");
                 alert.show();
             }
         }

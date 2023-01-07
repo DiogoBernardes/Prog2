@@ -1,4 +1,6 @@
 package ttts.task_time_tracking_system;
+import javafx.scene.control.Alert;
+
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -97,15 +99,12 @@ public class Freelancer implements Serializable {
 
     public void enviarConvite(Freelancer guest, Projects project){
             Invitation invite = new Invitation(this,guest,project);
-            /*List<Invitation> invitation = new ArrayList<>();
-            invitation =  guest.getInvitations();
-            if(invitation ==null){
-                invitation.add(invite);
-            }else{
-                invitation.add(invite);
-            }*/
             try {
                 InvitationREP.inviteGuestProject(invite);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Sucesso");
+                alert.setHeaderText("Convite Enviado!");
+                alert.show();
             }catch (IOException IE){
                 IE.getMessage();
             }catch (ClassNotFoundException CE){
